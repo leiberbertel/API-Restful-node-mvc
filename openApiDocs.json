@@ -1,0 +1,177 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API Restful Movies",
+    "description": "Es una API para la operaciones con Movie.",
+    "contact": {
+      "name": "Leiber Bertel",
+      "url": "https://leiberbertel.github.io"
+    },
+    "version": "1.0"
+  },
+  "components": {
+    "schemas": {
+      "Movie": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "example": "Fast furios",
+            "description": "Movie title."
+          },
+          "year": {
+            "type": "number",
+            "example": 2022,
+            "description": "Movie year."
+          },
+          "director": {
+            "type": "string",
+            "example": "John Doe",
+            "description": "Director of movie."
+          },
+          "duration": {
+            "type": "number",
+            "example": 120,
+            "description": "Duration of movie."
+          },
+          "rate": {
+            "type": "number",
+            "example": 4,
+            "description": "Rate of the movie."
+          },
+          "poster": {
+            "type": "string",
+            "example": "domain/image/example.jpg",
+            "description": "Url of image."
+          },
+          "genre": {
+            "type": "array",
+            "example": [
+              "Action",
+              "Adventure",
+              "Fantasy"
+            ],
+            "description": "Genre of movie."
+          }
+        }
+      }
+    }
+  },
+  "paths": {
+    "/movie/": {
+      "get": {
+        "summary": "Get all movies.",
+        "responses": {
+          "200": {
+            "description": "All movies.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Movie"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a movie.",
+        "responses": {
+          "201": {
+            "description": "Movie created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Movie"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/movie/{id}": {
+      "get": {
+        "summary": "Get movie by id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of the movie to retrieve",
+            "schema": {
+              "type": "string",
+              "example": "11"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieve movie.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Movie"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a movie.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of the movie to delete",
+            "schema": {
+              "type": "string",
+              "example": "12"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Movie deleted.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Movie"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update a movie."
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "ID of the movie to update",
+          "schema": {
+            "type": "string",
+            "example": "10"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Movie updated.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Movie"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
