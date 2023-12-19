@@ -35,7 +35,7 @@ npm run start:local
 
 The application will launch and be running on port 1234
 
-All endpoints and schemas are documented using Swagger UI. You can view the documentation at http://localhost:1234/swagger-ui/index.html#/, which is the default endpoint for the Swagger UI.
+All endpoints and schemas are documented using Swagger UI. You can view the documentation at http://localhost:1234/docs/, which is the default endpoint for the Swagger UI.
 
 ## Built with 🛠
  * Node version 20.9 - Language used
